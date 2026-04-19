@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, TrendingUp, Award, CreditCard, Home, Bike, User, Phone, Mail, MessageSquare, Shield, Clock, Globe, Users, AlertTriangle, FileText, BarChart3, Target, Sparkles } from 'lucide-react';
+import { ArrowLeft, TrendingUp, Award, CreditCard, Home, Bike, User, Phone, Mail, MessageSquare, Shield, Clock, Globe, Users, FileText, BarChart3, Target } from 'lucide-react';
 import { mockCustomer, mockCreditProducts, mockTriggers, customerExtended } from '../services/mockData';
 import CBILogo from '../components/CBILogo';
 
