@@ -24,19 +24,6 @@ export default function HomePage() {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-6 py-4">
-        {/* Hero Section */}
-        <div className="text-center mb-4 animate-fadeIn">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 tracking-tight">
-            Customer 360° Intelligence
-          </h2>
-          <p className="text-sm text-gray-600 mb-1">
-            Real-time Customer Insights & Behavioral Analytics
-          </p>
-          <p className="text-xs text-gray-400 uppercase tracking-wider">
-            "CENTRAL" TO YOU SINCE 1911
-          </p>
-        </div>
-
         {/* Main Dashboard Card */}
         <div className="mb-4">
           <Link
