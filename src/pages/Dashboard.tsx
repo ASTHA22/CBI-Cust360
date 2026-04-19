@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, TrendingUp, Award, CreditCard, Home, Bike, User, Phone, Mail, MessageSquare, Shield, Clock, Globe, Users, FileText, BarChart3, Target } from 'lucide-react';
+import { ArrowLeft, TrendingUp, Award, CreditCard, Home, Bike, User, Phone, Mail, MessageSquare, Shield, Clock, Globe, Users, FileText } from 'lucide-react';
 import { mockCustomer, mockCreditProducts, mockTriggers, customerExtended } from '../services/mockData';
 import CBILogo from '../components/CBILogo';
 
@@ -38,69 +38,28 @@ export default function Dashboard() {
   }, [isLive]);
 
   return (
-    <div className="min-h-screen bg-gray-50 flex">
-      {/* Sidebar */}
-      <div className="w-20 bg-white border-r border-gray-200 flex flex-col items-center py-6 space-y-8 shadow-sm">
-        <Link to="/" className="flex items-center justify-center">
-          <CBILogo className="w-12 h-12" />
-        </Link>
-        
-        <div className="flex-1 flex flex-col items-center space-y-6">
-          <button 
-            onClick={() => setActiveTab('profile')}
-            className={`w-12 h-12 rounded-xl flex items-center justify-center shadow-md transition-colors ${
-              activeTab === 'profile' 
-                ? 'bg-cbi-blue text-white' 
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-cbi-blue'
-            }`}
-          >
-            <User className="w-6 h-6" />
-          </button>
-          <button 
-            onClick={() => setActiveTab('offers')}
-            className={`w-12 h-12 rounded-xl flex items-center justify-center shadow-md transition-colors ${
-              activeTab === 'offers' 
-                ? 'bg-cbi-blue text-white' 
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-cbi-blue'
-            }`}
-          >
-            <BarChart3 className="w-6 h-6" />
-          </button>
-          <button 
-            onClick={() => setActiveTab('insights')}
-            className={`w-12 h-12 rounded-xl flex items-center justify-center shadow-md transition-colors ${
-              activeTab === 'insights' 
-                ? 'bg-cbi-blue text-white' 
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-cbi-blue'
-            }`}
-          >
-            <Target className="w-6 h-6" />
-          </button>
-        </div>
-
-        <Link to="/" className="text-gray-400 hover:text-cbi-blue transition-colors">
-          <ArrowLeft className="w-5 h-5" />
-        </Link>
-      </div>
-
+    <div className="min-h-screen bg-gray-50">
       {/* Main Content */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex flex-col">
         {/* Top Bar with Tabs */}
-        <div className="bg-white border-b border-gray-200 px-6 py-4 shadow-sm">
-          <div className="flex items-center justify-between mb-4">
+        <div className="bg-white border-b border-gray-200 px-6 py-3 shadow-sm">
+          <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-3">
+              <Link to="/" className="text-gray-400 hover:text-cbi-blue transition-colors">
+                <ArrowLeft className="w-5 h-5" />
+              </Link>
               <CBILogo className="w-10 h-10" />
               <div>
-                <h1 className="text-gray-900 font-bold text-lg">Central Bank of India</h1>
+                <h1 className="text-gray-900 font-bold text-base">Central Bank of India</h1>
                 <p className="text-gray-500 text-xs">Customer 360 Platform</p>
               </div>
             </div>
             <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2 bg-green-50 border border-green-200 px-3 py-1.5 rounded-full">
+              <div className="flex items-center gap-2 bg-green-50 border border-green-200 px-3 py-1 rounded-full">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                 <span className="text-green-700 text-xs font-semibold">LIVE</span>
               </div>
-              <span className="text-gray-500 text-sm">{new Date().toLocaleTimeString()}</span>
+              <span className="text-gray-500 text-xs">{new Date().toLocaleTimeString()}</span>
             </div>
           </div>
 
@@ -140,55 +99,50 @@ export default function Dashboard() {
         </div>
 
         {/* Content Area */}
-        <div className="flex-1 overflow-y-auto p-6 bg-gray-50">
+        <div className="flex-1 overflow-y-auto px-8 py-4 bg-gray-50">
           {/* Customer Profile Tab */}
           {activeTab === 'profile' && (
-            <div className="animate-fadeIn">
-        <div className="bg-gradient-to-r from-cbi-blue via-blue-700 to-blue-900 rounded-2xl shadow-2xl p-6 mb-6 text-white relative overflow-hidden">
+            <div className="animate-fadeIn max-w-6xl mx-auto">
+        <div className="bg-gradient-to-r from-cbi-blue via-blue-700 to-blue-900 rounded-xl shadow-lg p-5 mb-5 text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer"></div>
-          <div className="absolute top-4 right-4 flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full">
-            <div className={`w-2 h-2 rounded-full ${isLive ? 'bg-green-400 animate-pulse' : 'bg-gray-400'}`}></div>
-            <span className="text-xs font-semibold">LIVE</span>
-          </div>
           <div className="flex items-start justify-between">
             <div className="flex items-center gap-4">
               <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center">
                 <User className="w-10 h-10" />
               </div>
               <div>
-                <h1 className="text-3xl font-bold mb-1">{mockCustomer.name}</h1>
-                <p className="text-blue-100">Customer ID: {mockCustomer.id}</p>
-                <p className="text-blue-100">{mockCustomer.phone} • {mockCustomer.email}</p>
+                <h1 className="text-xl font-bold text-white">{mockCustomer.name}</h1>
+                <p className="text-blue-100 text-xs">CIF: {customerExtended.kyc.cif} • {mockCustomer.segment}</p>
               </div>
             </div>
             <div className="text-right">
-              <div className="inline-flex items-center gap-2 bg-yellow-500 text-yellow-900 px-4 py-2 rounded-full font-bold mb-2">
-                <Award className="w-5 h-5" />
+              <p className="text-blue-100 text-sm mb-2">Customer since {mockCustomer.since}</p>
+              <div className="inline-flex items-center gap-2 bg-yellow-500 text-yellow-900 px-3 py-1.5 rounded-full font-bold text-sm">
+                <Award className="w-4 h-4" />
                 {mockCustomer.tier} Tier
               </div>
-              <p className="text-blue-100">Customer since {mockCustomer.since}</p>
             </div>
           </div>
 
-          <div className="grid grid-cols-4 gap-4 mt-8 relative z-10">
+          <div className="grid grid-cols-4 gap-3 mt-4 relative z-10">
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 card-hover border border-white/20 transform transition-all duration-300 hover:scale-105">
-              <p className="text-blue-200 text-sm mb-1">LTV Score</p>
-              <p className="text-3xl font-bold">{ltvScore}/100</p>
+              <p className="text-blue-200 text-xs mb-1">LTV Score</p>
+              <p className="text-2xl font-bold">{ltvScore}/100</p>
               <div className="w-full bg-white/20 rounded-full h-1.5 mt-2">
                 <div className="bg-yellow-400 h-1.5 rounded-full transition-all duration-500" style={{ width: `${ltvScore}%` }}></div>
               </div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 card-hover border border-white/20 transform transition-all duration-300 hover:scale-105">
-              <p className="text-blue-200 text-sm mb-1">Monthly Income</p>
-              <p className="text-3xl font-bold">₹{(mockCustomer.monthlyIncome / 1000).toFixed(0)}K</p>
+              <p className="text-blue-200 text-xs mb-1">Monthly Income</p>
+              <p className="text-2xl font-bold">₹{(mockCustomer.monthlyIncome / 1000).toFixed(0)}K</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 card-hover border border-white/20 transform transition-all duration-300 hover:scale-105">
-              <p className="text-blue-200 text-sm mb-1">FOIR Headroom</p>
-              <p className="text-3xl font-bold">{mockCustomer.foir}%</p>
+              <p className="text-blue-200 text-xs mb-1">FOIR Headroom</p>
+              <p className="text-2xl font-bold">{mockCustomer.foir}%</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 card-hover border border-white/20 transform transition-all duration-300 hover:scale-105">
-              <p className="text-blue-200 text-sm mb-1">Credit Score</p>
-              <p className="text-3xl font-bold">{mockCustomer.creditScore}</p>
+              <p className="text-blue-200 text-xs mb-1">Credit Score</p>
+              <p className="text-2xl font-bold">{mockCustomer.creditScore}</p>
               <div className="w-full bg-white/20 rounded-full h-1.5 mt-2">
                 <div className="bg-green-400 h-1.5 rounded-full transition-all duration-500" style={{ width: `${(mockCustomer.creditScore / 900) * 100}%` }}></div>
               </div>
@@ -196,14 +150,14 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6 mb-6 animate-slideInLeft">
-          <div className="lg:col-span-2 bg-white rounded-2xl shadow-lg p-6 card-hover border border-gray-100">
-            <div className="flex items-start gap-6 mb-6">
-              <div className="w-32 h-32 bg-gradient-to-br from-cbi-blue to-blue-700 rounded-full flex items-center justify-center text-white flex-shrink-0">
-                <User className="w-16 h-16" />
+        <div className="grid lg:grid-cols-2 gap-5 mb-5 animate-slideInLeft">
+          <div className="bg-white rounded-xl shadow-sm p-5 card-hover border border-gray-200">
+            <div className="flex items-start gap-4 mb-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-cbi-blue to-blue-700 rounded-full flex items-center justify-center text-white flex-shrink-0">
+                <User className="w-8 h-8" />
               </div>
               <div className="flex-1">
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">Customer Profile</h2>
+                <h2 className="text-lg font-bold text-gray-900 mb-2">Customer Profile</h2>
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div>
                     <p className="text-gray-500">Segment</p>
@@ -225,101 +179,112 @@ export default function Dashboard() {
               </div>
             </div>
 
-            <div className="border-t pt-6 mb-6">
-              <h3 className="font-bold text-gray-900 mb-4">Product Stack for Mr. Rohan</h3>
-              <div className="space-y-3">
-                <div className="flex items-center gap-3 p-3 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg border border-blue-200 card-hover transform transition-all duration-300">
-                  <div className="w-10 h-10 bg-gradient-to-br from-cbi-blue to-blue-700 rounded-lg flex items-center justify-center shadow-md">
-                    <span className="text-white font-bold text-sm">SA</span>
-                  </div>
-                  <div className="flex-1">
-                    <p className="font-semibold text-gray-900">Savings Account</p>
-                    <p className="text-xs text-gray-600">₹16,251 • 3% interest</p>
-                  </div>
-                  <span className="px-3 py-1 bg-green-500 text-white rounded-full text-xs font-bold shadow-sm">ACTIVE</span>
-                </div>
-                <div className="flex items-center gap-3 p-3 bg-gradient-to-r from-green-50 to-emerald-100 rounded-lg border border-green-200 card-hover transform transition-all duration-300">
-                  <div className="w-10 h-10 bg-gradient-to-br from-green-600 to-emerald-700 rounded-lg flex items-center justify-center shadow-md">
-                    <span className="text-white font-bold text-sm">CC</span>
-                  </div>
-                  <div className="flex-1">
-                    <p className="font-semibold text-gray-900">Credit Card</p>
-                    <p className="text-xs text-gray-600">Limit: ₹2,00,000 • Utilization: 18%</p>
-                  </div>
-                  <span className="px-3 py-1 bg-green-500 text-white rounded-full text-xs font-bold shadow-sm">ACTIVE</span>
-                </div>
-                <div className="flex items-center gap-3 p-3 bg-gradient-to-r from-orange-50 to-amber-100 rounded-lg border border-orange-200 card-hover transform transition-all duration-300 animate-pulse-slow">
-                  <div className="w-10 h-10 bg-gradient-to-br from-orange-600 to-amber-700 rounded-lg flex items-center justify-center shadow-md">
-                    <span className="text-white font-bold text-sm">PL</span>
-                  </div>
-                  <div className="flex-1">
-                    <p className="font-semibold text-gray-900">Personal Loan</p>
-                    <p className="text-xs text-gray-600">Pre-approved: ₹10L • 10.5% p.a.</p>
-                  </div>
-                  <span className="px-3 py-1 bg-blue-500 text-white rounded-full text-xs font-bold shadow-sm">ELIGIBLE</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="border-t pt-6">
-              <h3 className="font-semibold text-gray-700 mb-3">Customer Behavior & Insight</h3>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-lg p-4">
+            <div className="border-t pt-3">
+              <h3 className="font-semibold text-gray-700 mb-3 text-sm">Customer Behavior & Insight</h3>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-lg p-3">
                   <p className="text-xs text-purple-700 mb-1">High-value Dining (&gt;₹5K)</p>
                   <p className="text-2xl font-bold text-purple-900">28</p>
                   <p className="text-xs text-purple-600">Perfect Txns</p>
                 </div>
-                <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-lg p-4">
+                <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-lg p-3">
                   <p className="text-xs text-blue-700 mb-1">Recurring EMI Payments</p>
                   <p className="text-2xl font-bold text-blue-900">₹16K</p>
                   <p className="text-xs text-blue-600">LTV Score: {ltvScore}</p>
                 </div>
               </div>
             </div>
+
+            <div className="border-t pt-3 mt-3">
+              <h3 className="font-semibold text-gray-700 mb-2 text-sm">Contact Information</h3>
+              <div className="space-y-1 text-sm">
+                <div className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-gray-400" />
+                  <span className="text-gray-600">Phone:</span>
+                  <span className="font-semibold text-gray-900">{mockCustomer.phone}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-gray-400" />
+                  <span className="text-gray-600">Email:</span>
+                  <span className="font-semibold text-gray-900">{mockCustomer.email}</span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-lg p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Engagement Momentum</h2>
+          {/* Right Column - Engagement Momentum + Product Stack */}
+          <div className="flex flex-col gap-5">
+            <div className="bg-white rounded-xl shadow-sm p-4 border border-gray-200 card-hover">
+              <h2 className="text-lg font-bold text-gray-900 mb-3">Engagement Momentum</h2>
             
-            <div className="space-y-4">
-              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                <div className="flex items-center gap-2 mb-1">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span className="text-sm font-semibold text-green-900">CBI Mobile App sessions</span>
+            <div className="grid grid-cols-3 gap-2">
+              <div className="bg-green-50 border border-green-200 rounded-lg p-2.5">
+                <span className="text-xs font-semibold text-green-900 block mb-1.5">App<br/>sessions</span>
+                <div className="w-full bg-green-200 rounded-full h-1.5 mb-1.5">
+                  <div className="bg-green-500 h-1.5 rounded-full transition-all duration-500" style={{ width: `${appSessions}%` }}></div>
                 </div>
-                <div className="w-full bg-green-200 rounded-full h-2 mb-1">
-                  <div className="bg-green-500 h-2 rounded-full transition-all duration-500" style={{ width: `${appSessions}%` }}></div>
-                </div>
-                <span className="text-xs text-green-700">{appSessions}%</span>
+                <span className="text-base font-bold text-green-700">{appSessions}%</span>
               </div>
 
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                <div className="flex items-center gap-2 mb-1">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  <span className="text-sm font-semibold text-blue-900">WA open rate</span>
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-2.5">
+                <span className="text-xs font-semibold text-blue-900 block mb-1.5">WA open<br/>rate</span>
+                <div className="w-full bg-blue-200 rounded-full h-1.5 mb-1.5">
+                  <div className="bg-blue-500 h-1.5 rounded-full transition-all duration-500" style={{ width: `${waOpenRate}%` }}></div>
                 </div>
-                <div className="w-full bg-blue-200 rounded-full h-2 mb-1">
-                  <div className="bg-blue-500 h-2 rounded-full transition-all duration-500" style={{ width: `${waOpenRate}%` }}></div>
-                </div>
-                <span className="text-xs text-blue-700">{waOpenRate}%</span>
+                <span className="text-base font-bold text-blue-700">{waOpenRate}%</span>
               </div>
 
-              <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
-                <div className="flex items-center gap-2 mb-1">
-                  <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                  <span className="text-sm font-semibold text-purple-900">Cross-sell</span>
+              <div className="bg-purple-50 border border-purple-200 rounded-lg p-2.5">
+                <span className="text-xs font-semibold text-purple-900 block mb-1.5">Cross-sell</span>
+                <div className="w-full bg-purple-200 rounded-full h-1.5 mb-1.5">
+                  <div className="bg-purple-500 h-1.5 rounded-full transition-all duration-500" style={{ width: `${crossSell}%` }}></div>
                 </div>
-                <div className="w-full bg-purple-200 rounded-full h-2 mb-1">
-                  <div className="bg-purple-500 h-2 rounded-full transition-all duration-500" style={{ width: `${crossSell}%` }}></div>
-                </div>
-                <span className="text-xs text-purple-700">{crossSell}%</span>
+                <span className="text-base font-bold text-purple-700">{crossSell}%</span>
               </div>
+            </div>
+            </div>
+
+            {/* Product Stack Card */}
+            <div className="bg-white rounded-xl shadow-sm p-4 border border-gray-200 card-hover">
+            <h3 className="font-semibold text-gray-900 mb-3 text-sm">Product Stack for Mr. Rohan</h3>
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 p-2 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg border border-blue-200">
+                <div className="w-8 h-8 bg-gradient-to-br from-cbi-blue to-blue-700 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-xs">SA</span>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="font-semibold text-gray-900 text-xs">Savings Account</p>
+                  <p className="text-xs text-gray-600 truncate">₹16,251 • 3% interest</p>
+                </div>
+                <span className="px-2 py-0.5 bg-green-500 text-white rounded-full text-xs font-bold">ACTIVE</span>
+              </div>
+              <div className="flex items-center gap-2 p-2 bg-gradient-to-r from-green-50 to-emerald-100 rounded-lg border border-green-200">
+                <div className="w-8 h-8 bg-gradient-to-br from-green-600 to-emerald-700 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-xs">CC</span>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="font-semibold text-gray-900 text-xs">Credit Card</p>
+                  <p className="text-xs text-gray-600 truncate">Limit: ₹2L • Util: 18%</p>
+                </div>
+                <span className="px-2 py-0.5 bg-green-500 text-white rounded-full text-xs font-bold">ACTIVE</span>
+              </div>
+              <div className="flex items-center gap-2 p-2 bg-gradient-to-r from-orange-50 to-amber-100 rounded-lg border border-orange-200">
+                <div className="w-8 h-8 bg-gradient-to-br from-orange-600 to-amber-700 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-xs">PL</span>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="font-semibold text-gray-900 text-xs">Personal Loan</p>
+                  <p className="text-xs text-gray-600 truncate">Pre-approved: ₹10L</p>
+                </div>
+                <span className="px-2 py-0.5 bg-blue-500 text-white rounded-full text-xs font-bold">ELIGIBLE</span>
+              </div>
+            </div>
             </div>
           </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-6">
-          <div className="bg-white rounded-2xl shadow-lg p-6">
+          <div className="bg-white rounded-2xl shadow-lg p-6 card-hover">
             <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
               <CreditCard className="w-6 h-6 text-cbi-blue" />
               Credit Portfolio
@@ -434,9 +399,9 @@ export default function Dashboard() {
             </button>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-lg p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <TrendingUp className="w-6 h-6 text-cbi-red" />
+          <div className="bg-white rounded-2xl shadow-lg p-6 card-hover">
+            <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <TrendingUp className="w-5 h-5 text-cbi-red" />
               AI-Powered Insights
             </h2>
             
@@ -479,14 +444,14 @@ export default function Dashboard() {
         </div>
 
         {/* New Comprehensive Sections */}
-        <div className="grid lg:grid-cols-3 gap-6 mt-6 animate-slideInRight">
+        <div className="grid lg:grid-cols-3 gap-5 mb-5 mt-6">
           {/* KYC & Validation */}
-          <div className="bg-white rounded-2xl shadow-lg p-6 card-hover border border-gray-100">
-            <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <FileText className="w-5 h-5 text-cbi-blue" />
+          <div className="bg-white rounded-xl shadow-sm p-5 card-hover border border-gray-200">
+            <h2 className="text-base font-bold text-gray-900 mb-3 flex items-center gap-2">
+              <FileText className="w-4 h-4 text-cbi-blue" />
               KYC & Validation
             </h2>
-            <div className="space-y-3 text-sm">
+            <div className="space-y-2 text-sm">
               <div className="flex justify-between items-center">
                 <span className="text-gray-600">KYC Status</span>
                 <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">
@@ -513,7 +478,7 @@ export default function Dashboard() {
           </div>
 
           {/* Interaction History */}
-          <div className="bg-white rounded-2xl shadow-lg p-6">
+          <div className="bg-white rounded-2xl shadow-lg p-6 card-hover">
             <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
               <MessageSquare className="w-5 h-5 text-purple-500" />
               Interaction History
@@ -551,7 +516,7 @@ export default function Dashboard() {
           </div>
 
           {/* Preferences & Behavior */}
-          <div className="bg-white rounded-2xl shadow-lg p-6">
+          <div className="bg-white rounded-2xl shadow-lg p-6 card-hover">
             <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
               <Globe className="w-5 h-5 text-orange-500" />
               Preferences & Behavior
@@ -618,7 +583,7 @@ export default function Dashboard() {
           </div>
 
           {/* Alerts, Flags & Risk Indicators */}
-          <div className="bg-white rounded-2xl shadow-lg p-6">
+          <div className="bg-white rounded-2xl shadow-lg p-6 card-hover">
             <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
               <Shield className="w-5 h-5 text-green-500" />
               Alerts, Flags & Risk Indicators
@@ -657,8 +622,8 @@ export default function Dashboard() {
 
           {/* Offers & Products Tab */}
           {activeTab === 'offers' && (
-            <div className="animate-fadeIn space-y-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Pre-Approved Offers & Products</h2>
+            <div className="animate-fadeIn space-y-6 max-w-6xl mx-auto">
+              <h2 className="text-xl font-bold text-gray-900 mb-6">Pre-Approved Offers & Products</h2>
               
               <div className="grid lg:grid-cols-2 gap-6">
                 <div className="bg-gradient-to-br from-green-50 to-emerald-100 border-2 border-green-300 rounded-2xl p-6 card-hover">
@@ -730,8 +695,8 @@ export default function Dashboard() {
 
           {/* AI Insights Tab */}
           {activeTab === 'insights' && (
-            <div className="animate-fadeIn space-y-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">AI-Powered Customer Insights</h2>
+            <div className="animate-fadeIn space-y-6 max-w-6xl mx-auto">
+              <h2 className="text-xl font-bold text-gray-900 mb-6">AI-Powered Customer Insights</h2>
               
               <div className="grid lg:grid-cols-2 gap-6">
                 {mockTriggers.map((trigger) => (
