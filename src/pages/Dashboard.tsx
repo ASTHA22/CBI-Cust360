@@ -622,69 +622,69 @@ export default function Dashboard() {
 
           {/* Offers & Products Tab */}
           {activeTab === 'offers' && (
-            <div className="animate-fadeIn space-y-6 max-w-6xl mx-auto">
-              <h2 className="text-xl font-bold text-gray-900 mb-6">Pre-Approved Offers & Products</h2>
+            <div className="animate-fadeIn space-y-4 max-w-6xl mx-auto">
+              <h2 className="text-xl font-bold text-gray-900 mb-4">Pre-Approved Offers & Products</h2>
               
-              <div className="grid lg:grid-cols-2 gap-6">
-                <div className="bg-gradient-to-br from-green-50 to-emerald-100 border-2 border-green-300 rounded-2xl p-6 card-hover">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-xl font-bold text-green-900">Personal Loan</h3>
-                    <span className="px-4 py-2 bg-green-500 text-white rounded-full text-sm font-bold">PRE-APPROVED</span>
+              <div className="grid lg:grid-cols-2 gap-5">
+                <div className="bg-gradient-to-br from-green-50 to-emerald-100 border-2 border-green-300 rounded-xl p-5 card-hover">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-lg font-bold text-green-900">Personal Loan</h3>
+                    <span className="px-3 py-1 bg-green-500 text-white rounded-full text-xs font-bold">PRE-APPROVED</span>
                   </div>
-                  <div className="grid grid-cols-2 gap-4 mb-4">
+                  <div className="grid grid-cols-2 gap-3 mb-3">
                     <div>
-                      <p className="text-green-700 text-sm">Amount</p>
-                      <p className="text-2xl font-bold text-green-900">₹10,00,000</p>
+                      <p className="text-green-700 text-xs">Amount</p>
+                      <p className="text-lg font-bold text-green-900">₹10,00,000</p>
                     </div>
                     <div>
-                      <p className="text-green-700 text-sm">Interest Rate</p>
-                      <p className="text-2xl font-bold text-green-900">10.5% p.a.</p>
+                      <p className="text-green-700 text-xs">Interest Rate</p>
+                      <p className="text-lg font-bold text-green-900">10.5% p.a.</p>
                     </div>
                     <div>
-                      <p className="text-green-700 text-sm">Tenure</p>
-                      <p className="text-xl font-bold text-green-900">36 months</p>
+                      <p className="text-green-700 text-xs">Tenure</p>
+                      <p className="text-base font-bold text-green-900">36 months</p>
                     </div>
                     <div>
-                      <p className="text-green-700 text-sm">Processing Fee</p>
-                      <p className="text-xl font-bold text-green-900">₹0 (Waived)</p>
+                      <p className="text-green-700 text-xs">Processing Fee</p>
+                      <p className="text-base font-bold text-green-900">₹0 (Waived)</p>
                     </div>
                   </div>
                   <button 
                     onClick={() => navigate('/mobile')}
-                    className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold transition-all"
+                    className="w-full bg-green-600 hover:bg-green-700 text-white py-2.5 rounded-lg font-semibold transition-all text-sm"
                   >
                     Apply Now →
                   </button>
                 </div>
 
-                <div className="bg-gradient-to-br from-blue-50 to-indigo-100 border-2 border-blue-300 rounded-2xl p-6 card-hover">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-xl font-bold text-blue-900">Home Improvement Loan</h3>
-                    <span className="px-4 py-2 bg-blue-500 text-white rounded-full text-sm font-bold">ELIGIBLE</span>
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-100 border-2 border-blue-300 rounded-xl p-5 card-hover">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-lg font-bold text-blue-900">Home Improvement Loan</h3>
+                    <span className="px-3 py-1 bg-blue-500 text-white rounded-full text-xs font-bold">ELIGIBLE</span>
                   </div>
-                  <div className="grid grid-cols-2 gap-4 mb-4">
+                  <div className="grid grid-cols-2 gap-3 mb-3">
                     <div>
-                      <p className="text-blue-700 text-sm">Amount</p>
-                      <p className="text-2xl font-bold text-blue-900">₹5,00,000</p>
+                      <p className="text-blue-700 text-xs">Amount</p>
+                      <p className="text-lg font-bold text-blue-900">₹5,00,000</p>
                     </div>
                     <div>
-                      <p className="text-blue-700 text-sm">Interest Rate</p>
-                      <p className="text-2xl font-bold text-blue-900">9.8% p.a.</p>
+                      <p className="text-blue-700 text-xs">Interest Rate</p>
+                      <p className="text-lg font-bold text-blue-900">9.8% p.a.</p>
                     </div>
                     <div>
-                      <p className="text-blue-700 text-sm">Tenure</p>
-                      <p className="text-xl font-bold text-blue-900">24 months</p>
+                      <p className="text-blue-700 text-xs">Tenure</p>
+                      <p className="text-base font-bold text-blue-900">24 months</p>
                     </div>
                     <div>
-                      <p className="text-blue-700 text-sm">Processing Fee</p>
-                      <p className="text-xl font-bold text-blue-900">1% + GST</p>
+                      <p className="text-blue-700 text-xs">Processing Fee</p>
+                      <p className="text-base font-bold text-blue-900">1% + GST</p>
                     </div>
                   </div>
                   <button 
                     onClick={() => {
                       alert('Eligibility Check: Customer is eligible for ₹5L Home Improvement Loan at 9.8% p.a.');
                     }}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-all cursor-pointer"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-lg font-semibold transition-all cursor-pointer text-sm"
                   >
                     Check Eligibility →
                   </button>
@@ -695,19 +695,19 @@ export default function Dashboard() {
 
           {/* AI Insights Tab */}
           {activeTab === 'insights' && (
-            <div className="animate-fadeIn space-y-6 max-w-6xl mx-auto">
-              <h2 className="text-xl font-bold text-gray-900 mb-6">AI-Powered Customer Insights</h2>
+            <div className="animate-fadeIn space-y-4 max-w-6xl mx-auto">
+              <h2 className="text-xl font-bold text-gray-900 mb-4">AI-Powered Customer Insights</h2>
               
-              <div className="grid lg:grid-cols-2 gap-6">
+              <div className="grid lg:grid-cols-2 gap-4">
                 {mockTriggers.map((trigger) => (
-                  <div key={trigger.id} className={`border-l-4 rounded-r-2xl p-6 card-hover ${
+                  <div key={trigger.id} className={`border-l-4 rounded-r-lg p-4 card-hover ${
                     trigger.urgency === 'high' ? 'border-red-500 bg-red-50' :
                     trigger.urgency === 'medium' ? 'border-yellow-500 bg-yellow-50' :
                     'border-blue-500 bg-blue-50'
                   }`}>
-                    <div className="flex items-start justify-between mb-3">
-                      <h3 className="font-bold text-gray-900 text-lg">{trigger.name}</h3>
-                      <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                    <div className="flex items-start justify-between mb-2">
+                      <h3 className="font-semibold text-gray-900 text-sm">{trigger.name}</h3>
+                      <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${
                         trigger.urgency === 'high' ? 'bg-red-200 text-red-800' :
                         trigger.urgency === 'medium' ? 'bg-yellow-200 text-yellow-800' :
                         'bg-blue-200 text-blue-800'
@@ -715,8 +715,8 @@ export default function Dashboard() {
                         {trigger.type}
                       </span>
                     </div>
-                    <p className="text-gray-700 mb-3">{trigger.description}</p>
-                    <p className="text-gray-500 text-sm">
+                    <p className="text-gray-700 text-sm mb-2">{trigger.description}</p>
+                    <p className="text-gray-500 text-xs">
                       {trigger.timestamp.toLocaleDateString()} • {trigger.urgency.toUpperCase()} urgency
                     </p>
                   </div>

@@ -122,7 +122,7 @@ export default function HomePage() {
           </Link>
 
           <Link
-            to="/processing"
+            to="/console"
             className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-green-500 group p-5 transform hover:scale-[1.02]"
           >
             <div className="flex items-start justify-between mb-4">
